@@ -1,0 +1,7 @@
+{
+  "name": "ecommerce app",
+  "description": "An ecommerce platform",
+  "repository": "https://github.com/rpethick0207/e-commerce",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
