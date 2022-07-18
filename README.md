@@ -85,7 +85,7 @@ Lawrence Kocaj - lawrencecaj@gmail.com
 
 Project Link: https://github.com/rpethick0207/e-commerce
 
-Heroku: https://e-commerce-card-finder.herokuapp.com/ : https://dashboard.heroku.com/apps/e-commerce-card-finder
+Heroku: https://graphic-card-find.herokuapp.com/ | https://git.heroku.com/graphic-card-find.git
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
