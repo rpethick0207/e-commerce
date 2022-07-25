@@ -3,6 +3,7 @@ const keys = require('./config/keys');
 const stripe = require('stripe')(keys.stripeSecretKey);
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const sequelize = require('./config/connection');
 
 const app = express();
 
