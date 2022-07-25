@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS `ecommerce`;
-CREATE DATABASE `ecommerce`;
