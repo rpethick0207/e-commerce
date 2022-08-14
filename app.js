@@ -7,7 +7,7 @@ const exphbs = require('express-handlebars');
 const mysql = require('mysql2');
 const session = require('express-session');
 const path = require('path');
-const routes = require('../e-commerce/controllers/api');
+const routes = require('../e-commerce/controllers/api/index');
 const sequelize = require('../e-commerce/config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('../e-commerce/utils/helpers');
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 
 // Charge Route
 app.post('/charge', (req, res) => {
-  const amount = 2500;
+  const amount = '';
   
   stripe.customers.create({
     email: req.body.stripeEmail,
