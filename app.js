@@ -7,10 +7,10 @@ const exphbs = require('express-handlebars');
 const mysql = require('mysql2');
 const session = require('express-session');
 const path = require('path');
-const routes = require('../e-commerce/controllers/api/index');
-const sequelize = require('../e-commerce/config/connection');
+const routes = require('../controllers/api/');
+const sequelize = require('../config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const helpers = require('../e-commerce/utils/helpers');
+const helpers = require('../utils/helpers');
 const hbs = exphbs.create({ helpers });
 
 
