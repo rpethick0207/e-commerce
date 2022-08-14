@@ -9,7 +9,7 @@ const sequelize = process.env.JAWSDB_URL
       host: process.env.DB_HOST,
       username: process.env.DB_USER,
       password: process.env.DB_PW,
-      database: process.env.DB,
+      database: process.env.DB_NAME,
       dialect: 'mysql',
       port: 3306
     });
