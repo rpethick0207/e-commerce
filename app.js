@@ -71,7 +71,7 @@ app.post('/charge', (req, res) => {
 
 const port = process.env.PORT || 5000;
 
-app.use(require('../e-commerce/controllers'));
+app.use(require('./controllers'));
 
 sequelize.sync({ force: false }).then(() => {
  app.listen(port, () => console.log('Now listening'));
