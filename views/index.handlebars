@@ -3,85 +3,23 @@
     <div class="col-md-6 text-center">
         <h1 class="display-3 mt-3 pt-5">
             Graphics Card Store
-        </h1> <p class="lead">Shop for graphic cards</p>
-        <!DOCTYPE html>
-<html>
-    <!-- CSS -->
-   <link rel="stylesheet" href="../public/css/style.css">
-   <!-- Box Icons -->
-   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-   <!-- bootstrap-->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <!-- Header -->
-   <header>
-      <div class="nav container">
-         <a href="#" class="logo">ALL-IN-ONE product finder</a>
-         <!-- Cart icon -->
-         <i class='bx bx-shopping-bag' id="cart-icon"></i>
+        </h1> <p class="lead"><a href= 'cart'>Shopping Cart</a></p>
+        
+<h1>{{title}}</h1>
+
+{{# each products }}
+  <div class="row">
+    <div class="col-md-12">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3>{{ this.title }}</h3>
+            <p class="description">{{{this.description}}}</p>
+            <div class="clearfix">
+            <div class="price pull-left"><i class="fa fa-tag" aria-hidden="true"></i> {{ this.price }} USD</div>
+              <a href="/add/{{ this.id }}" class="btn btn-default pull-right" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
+            </div>
+        </div>
       </div>
-   </header>
-
-   <!-- Shop -->
-   <section class="shop container">
-      <h2 class="section-title">Shop Products</h2>
-      <br>
-      <br>
-      <br>
-   
-      <!-- Content -->
-      <div class="shop-content">
-      
-         <!-- Box 1 --> 
-         <div class="product-box">
-            <img src="img/RTX 3060.jpg" alt="" class="product-img">
-            <h2 class="product-title">NVIDIA RTX 3060</h2>
-            <span class="price">$399.99</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-         </div>
-
-         <!-- Box 2 -->
-         <div class="product-box">
-            <img src="img/RTX 3070.jpg" alt="" class="product-img">
-            <h2 class="product-title">NVIDIA RTX 3070</h2>
-            <span class="price">$579.99</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-         </div>
-         
-         <!-- Box 3 --> 
-         <div class="product-box">
-            <img src="img/RTX 3080.jpg" alt="" class="product-img">
-            <h2 class="product-title">NVIDIA RTX 3080</h2>
-            <span class="price">$799.99</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-         </div>
-
-         <!-- Box 4 -->
-         <div class="product-box">
-            <img src="img/RTX 3090.jpg" alt="" class="product-img">
-            <h2 class="product-title">NVIDIA RTX 3090</h2>
-            <span class="price">$1500</span>
-            <i class='bx bx-shopping-bag add-cart'></i>
-         </div>
-
-      </div>
-   </section>
-  <form action="/charge" method="POST">
-    <script
-      src = "https://checkout.stripe.com/checkout.js"
-      class="stripe-button"
-      data-key="{{stripePublishableKey}}"
-      data-amount="2500"
-      data-name="Graphics Card Store"
-      data-description="Graphics card for sale"
-      data-image=""
-      data-locale="auto">
-      </script>
-      </form>
-  </body>
-</html>
     </div>
-    <div class ="col-md-6">
-        <img src ="" alt="">
-    </div>
-</div>
-</section>
+  </div>
+{{/each}}

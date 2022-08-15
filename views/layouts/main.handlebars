@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,29 +11,13 @@
           <body>
   <div class="wrapper">
     <header>
-      <h1>
+    
         <a href="/">Graphics Card Store</a>
-      </h1>
-      <nav>
-        {{#if loggedIn}}
-
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
-  
-  {{#if loggedIn}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
-
-</html>
+        <hr>
+        <hr>
+        <a href="/login">Login </a>
+       <body>
+        {{{header}}}
+  {{{body}}}
+  </body>
+  </html>

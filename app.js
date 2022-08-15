@@ -12,7 +12,9 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
-
+const logger= require('morgan');
+const index = require('./routes/index');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config()
 
@@ -22,6 +24,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 
 const sess = {
@@ -45,23 +52,26 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 
-// Index Route
+
+app.use('/',index);
+
+// Cart Route
 app.get('/', (req, res) => {
-  res.render('index', {
+  res.render('cart', {
     stripePublishableKey: keys.stripePublishableKey
   });
 });
 
 // Charge Route
 app.post('/charge', (req, res) => {
-  const amount = '';
+  
   
   stripe.customers.create({
     email: req.body.stripeEmail,
     source: req.body.stripeToken
   })
   .then(customer => stripe.charges.create({
-    amount,
+    amount: cartItem.item.price * cartItem.quantity,
     description: 'Graphics Card',
     currency: 'usd',
     customer: customer.id
@@ -69,10 +79,16 @@ app.post('/charge', (req, res) => {
   .then(charge => res.render('success'));
 });
 
+
+
 const port = process.env.PORT || 5000;
 
 app.use(require('./controllers'));
 
+
+
 sequelize.sync({ force: false }).then(() => {
  app.listen(port, () => console.log('Now listening'));
 });
+
+module.exports = app;
