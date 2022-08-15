@@ -61,5 +61,5 @@ User.init(
   }
 );
 
-module.exports = router;
+
 module.exports = User;

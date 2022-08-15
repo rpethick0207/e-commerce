@@ -1,6 +1,6 @@
 const seedUsers = require('./user-seeds');
 
-const sequelize = require('../../../../../Downloads/14.5/config/connection');
+const sequelize = require('../config/connection');
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
